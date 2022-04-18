@@ -44,8 +44,15 @@ def calculate(
 
 
 @app.command()
-def verify():
-    typer.echo("aaaa")
+def verify(
+    slot: int = typer.Argument(...),
+    rune_type: str = typer.Argument(...),
+    sub_type: SubTypes = typer.Option(...),
+    location: str = typer.Argument('all'),
+):
+    if location == 'all':
+        for rune in Database().find_among_all(slot, rune_type, sub_type.value):
+            typer.echo(rune)
 
 if __name__ == "__main__":
    app()

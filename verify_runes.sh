@@ -1,0 +1,1 @@
+python rune_quality.py verify 1 rage --sub-type HP%
