@@ -1,2 +1,4 @@
 pandas==1.4.2
 typer==0.4.1
+pymongo==4.1.1
+dnspython==2.2.1

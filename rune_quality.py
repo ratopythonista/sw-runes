@@ -5,6 +5,7 @@ from typing import List, Tuple, Type
 
 import typer
 
+from database import Database
 from reference_table import reference_table
 
 app = typer.Typer()
@@ -38,6 +39,7 @@ def calculate(
         result['subs'][type.value]['value'] = current_value
         result['subs'][type.value]['quality'] = round((current_value - min_value) / (max_value - min_value), 6)
 
+    Database().insert(result)
     typer.echo(result)
 
 
