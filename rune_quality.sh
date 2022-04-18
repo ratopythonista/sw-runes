@@ -1,4 +1,4 @@
-python rune_quality.py vigor 1 +12 \
+python rune_quality.py calculate 1 rage vigor +12 \
 --sub-type ACC% \
 --sub-value 12 \
 --sub-type HP% \

@@ -15,8 +15,9 @@ SubTypes = Enum(
 
 @app.command()
 def calculate(
-    location: str = typer.Argument('storage'),
     slot: int = typer.Argument(...),
+    rune_type: str = typer.Argument(...),
+    location: str = typer.Argument('storage'),
     up_status: str = typer.Argument("+0"),
     sub_value: List[int] = typer.Option([]),
     sub_type: List[SubTypes] = typer.Option([])
@@ -24,6 +25,7 @@ def calculate(
     result = {
         'location': location,
         'slot': slot,
+        'type': rune_type,
         'subs': defaultdict(dict)
     }
     for type, current_value in list(zip(sub_type, sub_value)):
@@ -39,5 +41,9 @@ def calculate(
     typer.echo(result)
 
 
+@app.command()
+def verify():
+    typer.echo("aaaa")
+
 if __name__ == "__main__":
-    typer.run(calculate)
+   app()
